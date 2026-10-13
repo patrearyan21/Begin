@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shram Saathi – Welfare Schemes for Informal Workers</title>
+<style>
+:root{--bg:#fbf7f0;--card:#fff;--ink:#1f2a37;--mut:#5b6675;--pri:#c2570c;--pri2:#0f766e;--line:#e6dfd2;--ok:#157f3b;--no:#b42318;--warn:#a15c07;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130f;--card:#201d17;--ink:#f1ece2;--mut:#aaa393;--pri:#f08a3c;--pri2:#4fd1c5;--line:#38332a;--ok:#5fd68a;--no:#ff8a80;--warn:#f5b84b}}
+:root[data-theme="dark"]{--bg:#15130f;--card:#201d17;--ink:#f1ece2;--mut:#aaa393;--pri:#f08a3c;--pri2:#4fd1c5;--line:#38332a;--ok:#5fd68a;--no:#ff8a80;--warn:#f5b84b}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:6px;align-items:center;padding:8px 14px;overflow-x:auto;white-space:nowrap}
+.nav b{color:var(--pri);margin-right:8px}.nav a{color:var(--ink);text-decoration:none;padding:6px 10px;border-radius:99px;font-size:14px}.nav a:hover{background:var(--line)}
+.nav button{margin-left:auto}
+main{max-width:980px;margin:auto;padding:0 16px 40px}
+.hero{padding:40px 0 20px}.hero h1{font-size:clamp(28px,6vw,46px);line-height:1.15;margin:0 0 12px}.hero p{color:var(--mut);max-width:640px;font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:20px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}.stat b{display:block;font-size:24px;color:var(--pri)}.stat span{font-size:13px;color:var(--mut)}
+section{margin-top:44px}h2{font-size:26px;margin:0 0 6px}.sub{color:var(--mut);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:10px}
+button.on{background:var(--pri);color:#fff;border-color:var(--pri)}button.primary{background:var(--pri2);color:#fff;border-color:var(--pri2);font-weight:600}
+.tag{display:inline-block;font-size:12px;background:var(--line);padding:2px 9px;border-radius:99px;margin:0 4px 4px 0}
+ul{padding-left:20px;margin:8px 0}li{margin:4px 0}
+label{display:block;font-size:14px;color:var(--mut);margin:12px 0 4px}
+input,select{width:100%;font:inherit;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.res{display:grid;gap:10px;margin-top:16px}.r{border-left:5px solid var(--line);background:var(--bg);padding:10px 14px;border-radius:10px}
+.r.ok{border-color:var(--ok)}.r.no{border-color:var(--no)}.r.chk{border-color:var(--warn)}.r b.ok{color:var(--ok)}.r b.no{color:var(--no)}.r b.chk{color:var(--warn)}
+.big{font-size:28px;font-weight:700;color:var(--pri2)}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:480px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left;font-size:14px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}summary{cursor:pointer;font-weight:600}
+.step{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}.step input{width:20px;height:20px;margin-top:4px}
+.bar{height:10px;background:var(--line);border-radius:9px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--pri2);width:0;transition:width .3s}
+footer{border-top:1px solid var(--line);padding:20px 16px;text-align:center;color:var(--mut);font-size:13px}
+</style>
+</head>
+<body>
+<header class="nav"><b>Shram Saathi</b><a href="#governance">Governance</a><a href="#schemes">Schemes</a><a href="#check">Eligibility</a><a href="#pension">Pension calc</a><a href="#docs">Apply</a><a href="#faq">FAQ</a><button id="theme" aria-label="Toggle theme">◐</button></header>
+<main>
+<div class="hero">
+<h1>Urban local governance &amp; welfare schemes for informal workers</h1>
+<p>Street vendors, domestic workers, construction labourers, gig and home-based workers keep our cities running. Find out which schemes you can use, check eligibility and plan your registration.</p>
+<div class="stats">
+<div class="stat"><b>~90%</b><span>of India's workforce is informal (approx.)</span></div>
+<div class="stat"><b>4</b><span>core schemes covered here</span></div>
+<div class="stat"><b>₹3,000</b><span>monthly pension under PMSYM</span></div>
+<div class="stat"><b>₹5 lakh</b><span>yearly health cover per family (PM-JAY)</span></div>
+</div></div>
+
+<section id="governance"><h2>Role of urban local bodies</h2><p class="sub">After the 74th Constitutional Amendment (1992), municipalities are responsible for local services and urban poverty alleviation.</p>
+<div class="grid">
+<div class="card"><h3>Identify &amp; register</h3><p>Ward offices and municipal corporations survey vendors and workers, issue vending certificates and help with registration camps.</p></div>
+<div class="card"><h3>Facilitate schemes</h3><p>Urban local bodies (ULBs), Common Service Centres and ward committees help workers enrol, collect documents and resolve grievances.</p></div>
+<div class="card"><h3>Provide spaces &amp; services</h3><p>Vending zones, shelters, sanitation, crèches and skill centres improve working conditions for informal workers.</p></div>
+<div class="card"><h3>Participation</h3><p>Ward committees, town vending committees and worker unions give informal workers a voice in city planning.</p></div>
+</div></section>
+
+<section id="schemes"><h2>Welfare schemes</h2><p class="sub">Select a scheme to see details.</p>
+<div class="tabs" id="tabs"></div><div class="card" id="detail"></div></section>
+
+<section id="check"><h2>Eligibility checker</h2><p class="sub">A quick guide based on commonly published criteria. Final eligibility is decided by the official portals.</p>
+<div class="card"><div class="grid">
+<div><label for="age">Your age</label><input id="age" type="number" min="1" max="100" placeholder="e.g. 28"></div>
+<div><label for="inc">Monthly income (₹)</label><input id="inc" type="number" min="0" placeholder="e.g. 12000"></div>
+<div><label for="pf">Member of EPFO / ESIC / NPS?</label><select id="pf"><option value="n">No</option><option value="y">Yes</option></select></div>
+<div><label for="tax">Pay income tax?</label><select id="tax"><option value="n">No</option><option value="y">Yes</option></select></div>
+<div><label for="bank">Have a bank account?</label><select id="bank"><option value="y">Yes</option><option value="n">No</option></select></div>
+<div><label for="secc">Name in PM-JAY / SECC / state list?</label><select id="secc"><option value="u">Not sure</option><option value="y">Yes</option><option value="n">No</option></select></div>
+</div><p><button class="primary" id="go">Check eligibility</button></p><div class="res" id="out"></div></div></section>
+
+<section id="pension"><h2>PMSYM pension calculator</h2><p class="sub">For ages 18–40. The Government of India contributes an equal amount to yours.</p>
+<div class="card"><label for="pa">Age at joining</label><input id="pa" type="number" min="18" max="40" value="25">
+<div class="grid" style="margin-top:14px" id="pr"></div>
+<details style="margin-top:14px"><summary>Contribution table</summary><div class="scroll"><table id="ptab"></table></div></details></div></section>
+
+<section id="docs"><h2>How to apply: my checklist</h2><p class="sub">Tick steps as you complete them. Progress is saved on this device.</p>
+<div class="card"><div class="bar"><i id="pb"></i></div><div id="pt" style="font-size:14px;color:var(--mut)"></div><div id="steps"></div>
+<p><button id="reset">Reset checklist</button></p></div>
+<div class="grid" style="margin-top:14px">
+<div class="card"><h3>Documents needed</h3><ul><li>Aadhaar card</li><li>Mobile number linked to Aadhaar</li><li>Savings bank account / IFSC</li><li>Ration card (for PM-JAY lists)</li><li>Passport photo, if requested</li></ul></div>
+<div class="card"><h3>Where to go</h3><ul><li>Nearest Common Service Centre (CSC)</li><li>Municipal ward office</li><li>Bank branch or Business Correspondent</li><li>Ayushman Mitra at empanelled hospitals</li></ul></div>
+<div class="card"><h3>Helplines</h3><ul><li>e-Shram: <b>14434</b></li><li>PM-JAY: <b>14555</b></li><li>PMSYM / CSC: <b>1800-267-6888</b></li></ul><p style="font-size:13px;color:var(--mut)">Numbers may change; confirm on official sites.</p></div></div></section>
+
+<section id="faq"><h2>Frequently asked questions</h2>
+<details><summary>Is registration free?</summary><p>Yes. e-Shram registration is free, and no one should charge you for it. Check with your CSC or ward office for any official fees on other services.</p></details>
+<details><summary>Can I join PMSYM and e-Shram both?</summary><p>Yes. e-Shram is a registration database and a gateway; PMSYM is a pension scheme you can enrol in once you meet its criteria.</p></details>
+<details><summary>What if I stop paying PMSYM contributions?</summary><p>If you stop before 10 years, you generally get back your contribution with savings-bank interest. After 10 years, you can continue paying until age 60 or exit as per scheme rules.</p></details>
+<details><summary>Do I need an Aadhaar card?</summary><p>Aadhaar is the main ID for e-Shram and PMSYM. For Jan Dhan accounts, other officially valid documents are also accepted.</p></details>
+<details><summary>I migrated to a new city. Can I still get benefits?</summary><p>e-Shram is designed to be portable across states. Contact your new ward office or CSC to update your details.</p></details></section>
+</main>
+<footer>Awareness project. Information is summarised from public scheme guidelines and may change. Always verify at eshram.gov.in, maandhan.in, pmjay.gov.in and pmjdy.gov.in.</footer>
+
+<script>
+const S={
+eshram:{n:"e-Shram",t:"Registration & social security",d:"A national database of unorganised workers. Registered workers get a Universal Account Number (UAN) / e-Shram card.",b:["Free 12-digit UAN and e-Shram card","Accidental insurance cover (₹2 lakh for death or permanent disability, ₹1 lakh for partial disability, as per scheme terms)","Single window to access other social security schemes","Helps governments plan for worker welfare"],e:["Age 16–59","Unorganised-sector worker","Not an EPFO / ESIC / NPS member","Not an income tax payer"],a:"Self-register at eshram.gov.in with Aadhaar-linked mobile, or visit a CSC."},
+pmsym:{n:"PM Shram Yogi Maandhan",t:"Pension after age 60",d:"A voluntary, contributory pension scheme. You pay a small monthly amount; the Government matches it.",b:["Assured pension of ₹3,000 per month after age 60","50:50 contribution by worker and Government","Family pension of 50% to spouse after the worker's death","Auto-debit from the bank account"],e:["Age 18–40","Monthly income ₹15,000 or less","Unorganised-sector worker","Not EPFO / ESIC / NPS member, not an income tax payer"],a:"Enrol at a CSC with Aadhaar and bank account, or via maandhan.in."},
+pmjay:{n:"Ayushman Bharat PM-JAY",t:"Health insurance",d:"Cashless secondary and tertiary hospital care for eligible families at empanelled public and private hospitals.",b:["Cover of ₹5 lakh per family per year","Cashless, paperless treatment","Covers pre- and post-hospitalisation costs","No cap on family size or age"],e:["Eligibility is based on deprivation / occupational criteria and state lists","Check name using Aadhaar, ration card or mobile number","Many states also run their own extended schemes"],a:"Check at mera.pmjay.gov.in or call 14555; get the Ayushman card at a CSC or hospital Ayushman Mitra desk."},
+pmjdy:{n:"PM Jan Dhan Yojana",t:"Banking & financial inclusion",d:"Zero-balance basic bank accounts for everyone who does not yet have one, forming the base for direct benefit transfers.",b:["Zero-balance savings account","RuPay debit card with accident insurance","Overdraft facility up to ₹10,000 (as per rules)","Direct benefit transfer, and access to insurance and pension products"],e:["Any resident aged 10 years or above without a bank account","Basic KYC (Aadhaar or other official ID)"],a:"Visit any bank branch or Business Correspondent with your ID."}
+};
+const $=id=>document.getElementById(id);
+const tabs=$("tabs");let cur="eshram";
+function show(k){cur=k;tabs.innerHTML="";for(const x in S){const b=document.createElement("button");b.textContent=S[x].n;if(x===k)b.className="on";b.onclick=()=>show(x);tabs.appendChild(b)}
+const s=S[k],l=a=>"<ul>"+a.map(i=>"<li>"+i+"</li>").join("")+"</ul>";
+$("detail").innerHTML=`<span class="tag">${s.t}</span><h3 style="margin:6px 0">${s.n}</h3><p>${s.d}</p><h4>Benefits</h4>${l(s.b)}<h4>Eligibility</h4>${l(s.e)}<h4>How to apply</h4><p>${s.a}</p>`}
+show("eshram");
+
+$("go").onclick=()=>{
+const age=+$("age").value,inc=+$("inc").value,pf=$("pf").value==="y",tax=$("tax").value==="y",bank=$("bank").value==="y",secc=$("secc").value;
+if(!age){$("out").innerHTML='<div class="r chk"><b class="chk">Please enter your age.</b></div>';return}
+const R=[];
+const ex=pf||tax;
+R.push(["e-Shram",age>=16&&age<=59&&!ex?["ok","Likely eligible","Register for free at eshram.gov.in."]:["no","May not be eligible",age<16||age>59?"Age must be 16–59.":"EPFO/ESIC/NPS members and income tax payers are excluded."]]);
+const okP=age>=18&&age<=40&&inc<=15000&&!ex;
+R.push(["PMSYM Pension",okP?["ok","Likely eligible","Your monthly contribution would be ₹"+contrib(age)+", matched by the Government."]:["no","May not be eligible",age<18||age>40?"Age must be 18–40.":inc>15000?"Income must be ₹15,000/month or less.":"EPFO/ESIC/NPS members and tax payers are excluded."]]);
+R.push(["Ayushman Bharat",secc==="y"?["ok","Likely eligible","Get your Ayushman card at a CSC or hospital."]:secc==="n"?["no","Probably not on the central list","Check your state scheme or ask the ward office."]:["chk","Check your name","Use mera.pmjay.gov.in or call 14555."]]);
+R.push(["PM Jan Dhan",!bank?["ok","Eligible","Open a zero-balance account at any bank (age 10+)."]:["chk","Already banked","Ask your bank to convert it to a Jan Dhan account for RuPay card and insurance benefits."]]);
+$("out").innerHTML=R.map(([n,[c,h,m]])=>`<div class="r ${c}"><b class="${c}">${n}: ${h}</b><div style="font-size:14px;color:var(--mut)">${m}</div></div>`).join("")};
+
+const T={18:55,19:58,20:61,21:64,22:68,23:72,24:76,25:80,26:85,27:90,28:95,29:100,30:105,31:110,32:120,33:130,34:140,35:150,36:160,37:170,38:180,39:190,40:200};
+function contrib(a){return T[a]}
+function calc(){let a=Math.round(+$("pa").value);if(!(a>=18&&a<=40)){$("pr").innerHTML='<div class="card">Enter an age between 18 and 40.</div>';return}
+const c=T[a],yrs=60-a,own=c*12*yrs;
+$("pr").innerHTML=`<div class="card"><div class="big">₹${c}</div>Your monthly contribution</div><div class="card"><div class="big">${yrs} yrs</div>Contribution period until 60</div><div class="card"><div class="big">₹${own.toLocaleString("en-IN")}</div>Total you pay (approx.)</div><div class="card"><div class="big">₹${(own*2).toLocaleString("en-IN")}</div>With Government match</div><div class="card"><div class="big">₹3,000</div>Monthly pension from age 60</div>`}
+$("pa").oninput=calc;calc();
+$("ptab").innerHTML="<tr><th>Age</th><th>₹/month</th><th>Age</th><th>₹/month</th></tr>"+Array.from({length:12},(_,i)=>{const a=18+i,b=30+i;return `<tr><td>${a}</td><td>${T[a]}</td><td>${b}</td><td>${T[b]}</td></tr>`}).join("")+"<tr><td>40</td><td>200</td><td></td><td></td></tr>";
+
+const ST=["Keep Aadhaar, mobile number and bank details ready","Open a Jan Dhan / bank account if you have none","Register on e-Shram and download your UAN card","Check if you qualify and enrol in PMSYM","Check your name on PM-JAY and get the Ayushman card","Register with your municipal ward office / vending committee"];
+let done=[];try{done=JSON.parse(localStorage.getItem("ss_done")||"[]")}catch(e){}
+function draw(){$("steps").innerHTML=ST.map((s,i)=>`<label class="step"><input type="checkbox" data-i="${i}" ${done.includes(i)?"checked":""}><span style="color:var(--ink);font-size:16px;margin:0">${s}</span></label>`).join("");
+document.querySelectorAll("#steps input").forEach(c=>c.onchange=()=>{const i=+c.dataset.i;done=c.checked?[...new Set([...done,i])]:done.filter(x=>x!==i);try{localStorage.setItem("ss_done",JSON.stringify(done))}catch(e){}draw()});
+$("pb").style.width=done.length/ST.length*100+"%";$("pt").textContent=done.length+" of "+ST.length+" steps done"}
+$("reset").onclick=()=>{done=[];try{localStorage.removeItem("ss_done")}catch(e){}draw()};draw();
+
+$("theme").onclick=()=>{const r=document.documentElement,dk=matchMedia("(prefers-color-scheme:dark)").matches;const now=r.dataset.theme||(dk?"dark":"light");r.dataset.theme=now==="dark"?"light":"dark"};
+</script>
+</body>
+</html>
