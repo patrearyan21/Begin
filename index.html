@@ -34,11 +34,12 @@ input,select{width:100%;font:inherit;padding:10px;border-radius:10px;border:1px 
 details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px}summary{cursor:pointer;font-weight:600}
 .step{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}.step input{width:20px;height:20px;margin-top:4px}
 .bar{height:10px;background:var(--line);border-radius:9px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--pri2);width:0;transition:width .3s}
+.chk{display:flex;gap:8px;align-items:center;color:var(--ink);font-size:15px;margin:6px 0}.chk input{width:20px;height:20px}
 footer{border-top:1px solid var(--line);padding:20px 16px;text-align:center;color:var(--mut);font-size:13px}
 </style>
 </head>
 <body>
-<header class="nav"><b>Shram Saathi</b><a href="#governance">Governance</a><a href="#schemes">Schemes</a><a href="#check">Eligibility</a><a href="#pension">Pension calc</a><a href="#docs">Apply</a><a href="#faq">FAQ</a><button id="theme" aria-label="Toggle theme">◐</button></header>
+<header class="nav"><b>Shram Saathi</b><a href="#governance">Governance</a><a href="#schemes">Schemes</a><a href="#check">Eligibility</a><a href="#pension">Pension calc</a><a href="#docs">Apply</a><a href="#join">Join</a><a href="#faq">FAQ</a><button id="theme" aria-label="Toggle theme">◐</button></header>
 <main>
 <div class="hero">
 <h1>Urban local governance &amp; welfare schemes for informal workers</h1>
@@ -84,6 +85,17 @@ footer{border-top:1px solid var(--line);padding:20px 16px;text-align:center;colo
 <div class="card"><h3>Where to go</h3><ul><li>Nearest Common Service Centre (CSC)</li><li>Municipal ward office</li><li>Bank branch or Business Correspondent</li><li>Ayushman Mitra at empanelled hospitals</li></ul></div>
 <div class="card"><h3>Helplines</h3><ul><li>e-Shram: <b>14434</b></li><li>PM-JAY: <b>14555</b></li><li>PMSYM / CSC: <b>1800-267-6888</b></li></ul><p style="font-size:13px;color:var(--mut)">Numbers may change; confirm on official sites.</p></div></div></section>
 
+<section id="join"><h2>Get help registering</h2><p class="sub">Leave your details so a volunteer or ward office can contact you. <span id="cnt"></span></p>
+<div class="card"><div class="grid">
+<div><label for="rn">Full name</label><input id="rn" maxlength="60" autocomplete="name"></div>
+<div><label for="rp">Mobile number (10 digits)</label><input id="rp" inputmode="numeric" maxlength="10" autocomplete="tel"></div>
+<div><label for="rc">City / ward</label><input id="rc" maxlength="60"></div>
+<div><label for="ro">Occupation</label><select id="ro"><option>Street vendor</option><option>Domestic worker</option><option>Construction worker</option><option>Gig / delivery worker</option><option>Home-based worker</option><option>Waste picker</option><option>Other</option></select></div>
+</div>
+<label>Schemes you want help with</label><div id="ri"><label class="chk"><input type="checkbox" value="eshram"> e-Shram</label><label class="chk"><input type="checkbox" value="pmsym"> PM Shram Yogi Maandhan (pension)</label><label class="chk"><input type="checkbox" value="pmjay"> Ayushman Bharat (health)</label><label class="chk"><input type="checkbox" value="pmjdy"> PM Jan Dhan (bank account)</label></div>
+<label class="chk"><input type="checkbox" id="rg"> I agree to share these details so I can be contacted about these schemes.</label>
+<p><button class="primary" id="rs">Submit</button></p><div id="rm" role="status" style="color:var(--mut)"></div></div></section>
+
 <section id="faq"><h2>Frequently asked questions</h2>
 <details><summary>Is registration free?</summary><p>Yes. e-Shram registration is free, and no one should charge you for it. Check with your CSC or ward office for any official fees on other services.</p></details>
 <details><summary>Can I join PMSYM and e-Shram both?</summary><p>Yes. e-Shram is a registration database and a gateway; PMSYM is a pension scheme you can enrol in once you meet its criteria.</p></details>
@@ -107,7 +119,7 @@ const s=S[k],l=a=>"<ul>"+a.map(i=>"<li>"+i+"</li>").join("")+"</ul>";
 $("detail").innerHTML=`<span class="tag">${s.t}</span><h3 style="margin:6px 0">${s.n}</h3><p>${s.d}</p><h4>Benefits</h4>${l(s.b)}<h4>Eligibility</h4>${l(s.e)}<h4>How to apply</h4><p>${s.a}</p>`}
 show("eshram");
 
-$("go").onclick=()=>{
+$("go").onclick=async()=>{
 const age=+$("age").value,inc=+$("inc").value,pf=$("pf").value==="y",tax=$("tax").value==="y",bank=$("bank").value==="y",secc=$("secc").value;
 if(!age){$("out").innerHTML='<div class="r chk"><b class="chk">Please enter your age.</b></div>';return}
 const R=[];
@@ -117,7 +129,9 @@ const okP=age>=18&&age<=40&&inc<=15000&&!ex;
 R.push(["PMSYM Pension",okP?["ok","Likely eligible","Your monthly contribution would be ₹"+contrib(age)+", matched by the Government."]:["no","May not be eligible",age<18||age>40?"Age must be 18–40.":inc>15000?"Income must be ₹15,000/month or less.":"EPFO/ESIC/NPS members and tax payers are excluded."]]);
 R.push(["Ayushman Bharat",secc==="y"?["ok","Likely eligible","Get your Ayushman card at a CSC or hospital."]:secc==="n"?["no","Probably not on the central list","Check your state scheme or ask the ward office."]:["chk","Check your name","Use mera.pmjay.gov.in or call 14555."]]);
 R.push(["PM Jan Dhan",!bank?["ok","Eligible","Open a zero-balance account at any bank (age 10+)."]:["chk","Already banked","Ask your bank to convert it to a Jan Dhan account for RuPay card and insurance benefits."]]);
-$("out").innerHTML=R.map(([n,[c,h,m]])=>`<div class="r ${c}"><b class="${c}">${n}: ${h}</b><div style="font-size:14px;color:var(--mut)">${m}</div></div>`).join("")};
+let RR=R;const api=await callApi("/api/eligibility",{age,income:inc,pf:pf?"y":"n",tax:tax?"y":"n",bank:bank?"y":"n",secc});
+if(api&&api.results)RR=api.results.map(x=>[x.name,[x.status,x.headline,x.message]]);
+$("out").innerHTML=RR.map(([n,[c,h,m]])=>`<div class="r ${c}"><b class="${c}">${n}: ${h}</b><div style="font-size:14px;color:var(--mut)">${m}</div></div>`).join("")};
 
 const T={18:55,19:58,20:61,21:64,22:68,23:72,24:76,25:80,26:85,27:90,28:95,29:100,30:105,31:110,32:120,33:130,34:140,35:150,36:160,37:170,38:180,39:190,40:200};
 function contrib(a){return T[a]}
@@ -134,6 +148,21 @@ document.querySelectorAll("#steps input").forEach(c=>c.onchange=()=>{const i=+c.
 $("pb").style.width=done.length/ST.length*100+"%";$("pt").textContent=done.length+" of "+ST.length+" steps done"}
 $("reset").onclick=()=>{done=[];try{localStorage.removeItem("ss_done")}catch(e){}draw()};draw();
 
+const API_BASE="https://shram-saathi-api-1.onrender.com";
+async function callApi(path,body){
+if(!API_BASE||API_BASE.indexOf("PASTE")===0)return null;
+try{const r=await fetch(API_BASE.replace(/\/+$/,"")+path,{method:body?"POST":"GET",headers:body?{"Content-Type":"application/json"}:{},body:body?JSON.stringify(body):undefined});
+const j=await r.json();return r.ok?j:{error:j.error||"Request failed"}}catch(e){return null}}
+callApi("/api/stats").then(s=>{if(s&&s.registered!=null)$("cnt").textContent=s.registered+" people have registered through this site."});
+$("rs").onclick=async()=>{
+const m=$("rm");
+const body={name:$("rn").value,phone:$("rp").value,city:$("rc").value,occupation:$("ro").value,interests:[...document.querySelectorAll("#ri input:checked")].map(x=>x.value),consent:$("rg").checked};
+m.textContent="Sending... the free server may take up to a minute to wake up.";
+const r=await callApi("/api/register",body);
+if(r===null){m.textContent="The server is not reachable right now. Please try again in a minute.";return}
+if(r.error){m.textContent=r.error;return}
+m.textContent="Thank you! Your details were saved.";
+["rn","rp","rc"].forEach(i=>$(i).value="");$("rg").checked=false;document.querySelectorAll("#ri input").forEach(c=>c.checked=false)};
 $("theme").onclick=()=>{const r=document.documentElement,dk=matchMedia("(prefers-color-scheme:dark)").matches;const now=r.dataset.theme||(dk?"dark":"light");r.dataset.theme=now==="dark"?"light":"dark"};
 </script>
 </body>
